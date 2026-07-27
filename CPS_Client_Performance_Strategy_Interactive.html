@@ -47,9 +47,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .round-opt .r-desc{font-size:10px;color:#9ca3af;margin-top:3px;line-height:1.4}
 
 .depth-card{border:2px solid #e5e7eb;border-radius:12px;padding:14px 16px;margin-top:8px}
-.depth-opt-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
-.depth-opt{border:2px solid #e5e7eb;border-radius:10px;padding:12px;cursor:pointer;transition:all .15s;position:relative}
-.depth-opt:hover{border-color:#93c5fd}
+.depth-opt-row{display:grid;grid-template-columns:1fr;gap:10px;margin-top:8px}
+.depth-opt{border:2px solid #e5e7eb;border-radius:10px;padding:12px;position:relative}
 .depth-opt.selected{border-color:#1e3a5f;background:#eef2ff}
 .depth-opt .d-label{font-size:12px;font-weight:800;color:#1e3a5f}
 .depth-opt .d-desc{font-size:10.5px;color:#6b7280;margin-top:4px;line-height:1.5}
@@ -277,17 +276,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     </div>
 
     <div class="depth-card">
-      <label class="field-label" style="margin-bottom:2px">Assessment depth model <span class="tbd" onclick="showTbd('depth-model')">to be finalised with you</span></label>
+      <label class="field-label" style="margin-bottom:2px">Assessment depth model</label>
       <div class="depth-opt-row">
-        <div class="depth-opt" id="depth-a" onclick="setDepth('A')">
-          <span class="d-label">Option A</span>
-          <div class="d-desc">Two full assessments a year — same depth, full evidence walk-through, both reviews.</div>
-          <span class="preview-link" onclick="event.stopPropagation();previewDepth('A')">Preview full sheet &rarr;</span>
-        </div>
-        <div class="depth-opt" id="depth-b" onclick="setDepth('B')">
-          <span class="d-label">Option B</span>
-          <div class="d-desc">Light score-only check at First Review (quarterly signals); full evidence walk-through at Second Review (annual).</div>
-          <span class="preview-link" onclick="event.stopPropagation();previewDepth('B')">Preview full sheet &rarr;</span>
+        <div class="depth-opt selected" id="depth-a">
+          <span class="d-label">Two full assessments a year</span>
+          <div class="d-desc">Same depth, full evidence walk-through, at both the First and Second Review.</div>
+          <span class="preview-link" onclick="previewDepth()">Preview full sheet &rarr;</span>
         </div>
       </div>
     </div>
@@ -370,7 +364,6 @@ const T = {
 const TBD = {
   'nps-standard': ["IBL Standard NPS — not set yet", "No absolute NPS figure is set across the group: benchmarks differ too much by sector. For now, only a universal floor applies (net-negative NPS = red flag everywhere) and trend matters more than level. The plan: once 1-2 rounds of real data exist, set an IBL Standard NPS <span class='new'>per cluster</span>, empirically, from IBL's own top performers in that sector."],
   'small-base': ["Small customer-base threshold — to be determined", "Discussed but not fixed: response rate (data quality) and customer-base size (a structural fact) are two different things needing two different thresholds. Reference points floated: NPS gets unreliable below ~30-50 responses per period; many B2B companies could realistically survey/interview everyone under ~50 clients. No default applied yet."],
-  'depth-model': ["Review depth model — Option A vs B", "Option A: two identical full assessments a year. Option B: a light score-only check at the First (quarterly) Review, full evidence walk-through at the Second (annual) Review. Option B better matches the agreed cadence (quarterly = internal signal review, annual = the real survey) without doubling the calibration workload twice a year — but this needs your final confirmation before it's locked."],
   'worldclass-priority': ["Which dimensions deserve the World-Class push?", "Not every dimension needs to reach Score 5 for every company. Best practice: target maturity should be set by strategic importance — differentiating capabilities aim for 4-5, utility-type capabilities can stop at a stable 3 if outcomes are fine. Which dimensions are strategic priorities (and therefore get pushed to World-Class first) should be decided per company, linked to its actual strategy — not applied uniformly. Still to be defined with each cluster."],
   'ibl-metrics-def': ["Official IBL metrics definitions — not published yet", "Dimension 2 assumes one shared set of NPS/CSAT/CES definitions (exact wording, scales, calculation rules) across the group. This doesn't exist yet — agreed to be co-built and validated with cluster heads, timing not yet set. Companies can now reach Proficient using their own documented methodology (fixed scale, wording, calculation rule); the group definitions are a cross-check once published, not a blocker to scoring."],
   'platform-catalogue': ["IBL platform requirements catalogue — not published yet", "Dimension 6 (Technology & Data) is requirements-based: any platform is fine as long as it meets a defined IBL requirements catalogue (collection, dashboards, alerting, action tracking, export). That catalogue doesn't exist yet — also to be co-built with cluster heads."],
@@ -390,14 +383,12 @@ function showTbd(key){
 }
 function closeModal(){ document.getElementById('modal').classList.remove('open'); }
 
-function previewDepth(opt){
+function previewDepth(){
   const dims = getDims();
-  let html = '<span class="modal-tag" style="background:#dbeafe;color:#1e40af">PREVIEW - OPTION '+opt+'</span>'
-    + '<div class="modal-title">'+(opt==='A' ? 'Two full assessments a year' : 'Light First Review + Full Second Review')+'</div>'
-    + '<div class="modal-body"><p style="margin-bottom:10px">'+(opt==='A'
-      ? 'Every one of the 11 dimensions below is assessed with the full 5-level evidence walk-through, at both the First and the Second Review.'
-      : 'At the First Review (quarterly signals), each dimension below is scored quickly with no evidence walk-through required. At the Second Review (annual), the full evidence walk-through applies to all 11 dimensions.')+'</p><ul style="padding-left:18px;line-height:1.8">';
-  dims.forEach(function(d){ html += '<li><b>'+d.title.replace(/<[^>]+>/g,'')+'</b> - '+(opt==='A' ? 'full evidence, every review' : 'score-only at First Review, full evidence at Second Review')+'</li>'; });
+  let html = '<span class="modal-tag" style="background:#dbeafe;color:#1e40af">PREVIEW</span>'
+    + '<div class="modal-title">Two full assessments a year</div>'
+    + '<div class="modal-body"><p style="margin-bottom:10px">Every one of the 11 dimensions below is assessed with the full 5-level evidence walk-through, at both the First and the Second Review.</p><ul style="padding-left:18px;line-height:1.8">';
+  dims.forEach(function(d){ html += '<li><b>'+d.title.replace(/<[^>]+>/g,'')+'</b> - full evidence, every review</li>'; });
   html += '</ul></div>';
   const box = document.getElementById('modal-box');
   box.classList.add('wide');
@@ -411,7 +402,6 @@ function closeModalWide(){
 
 let sector = 'b2c';
 let round = 'second';
-let depth = 'A';
 let cur = 0;
 const N_DIMS = 11;
 let scores = new Array(N_DIMS).fill(null);
@@ -423,8 +413,6 @@ const WEIGHTS   = new Array(N_DIMS).fill(1/N_DIMS);
 
 function setSector(s){ sector=s; ['b2c','b2b','mix'].forEach(function(x){document.getElementById('sec-'+x).classList.toggle('selected',x===s);}); renderDim(cur); }
 function setRound(r){ round=r; ['first','second'].forEach(function(x){document.getElementById('rd-'+x).classList.toggle('selected',x===r);}); renderDim(cur); }
-function setDepth(d){ depth=d; ['a','b'].forEach(function(x){document.getElementById('depth-'+x).classList.toggle('selected', x===d.toLowerCase());}); renderDim(cur); }
-
 function getDims(){
   const t = T[sector];
   return [
@@ -658,8 +646,7 @@ function renderDim(i){
   const dims = getDims();
   const d = dims[i];
   const names = LVL_NAMES;
-  const lightMode = (depth==='B' && round==='first');
-  const modeBadge = lightMode ? 'SCORE ONLY - FIRST REVIEW' : (round==='first' ? 'FULL - FIRST REVIEW' : 'FULL - SECOND REVIEW');
+  const modeBadge = round==='first' ? 'FULL - FIRST REVIEW' : 'FULL - SECOND REVIEW';
   let html='<div class="dim-card"><div class="dim-hdr" style="background:linear-gradient(135deg,#1e3a5f,#2d5986)">'
     +'<span class="dim-icon">'+d.icon+'</span>'
     +'<div><div class="dim-title">'+d.title+'</div><div class="dim-sub">'+d.sub+'</div></div>'
@@ -677,7 +664,7 @@ function renderDim(i){
       +'<div class="lvl-body">'
       +'<div class="lvl-name-row"><span class="lvl-badge '+LVL_CLS[li]+'">'+names[li]+'</span>'+iblMin+iblWc+'</div>'
       +'<div class="lvl-desc">'+lv.desc+'</div>'
-      +(lightMode ? '' : '<div class="lvl-evidence"><strong>Observable evidence:</strong> '+lv.ev+'</div>')
+      +'<div class="lvl-evidence"><strong>Observable evidence:</strong> '+lv.ev+'</div>'
       +'</div></div></div>';
   });
 
@@ -806,11 +793,11 @@ function reset(){
   document.getElementById('view-results').style.display='none';
   document.getElementById('view-assess').style.display='block';
   document.getElementById('co-name').value=''; document.getElementById('co-cluster').value=''; document.getElementById('co-base').value='';
-  setSector('b2c'); setRound('second'); setDepth('A');
+  setSector('b2c'); setRound('second');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-setSector('b2c'); setRound('second'); setDepth('A');
+setSector('b2c'); setRound('second');
 renderDim(0);
 </script>
 </body>
