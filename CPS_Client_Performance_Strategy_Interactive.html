@@ -219,6 +219,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="legend-item"><span class="legend-swatch" style="background:#dbeafe"></span> Added or changed in today's session</div>
   <div class="legend-item"><span class="legend-swatch" style="background:#1e3a5f"></span> IBL Minimum Standard</div>
   <div class="legend-item"><span class="legend-swatch" style="background:#5b21b6"></span> World-Class target</div>
+  <div class="legend-item"><span class="tbd" onclick="showTbd('level-names')">Level names not yet finalised group-wide</span></div>
 </div>
 
 <!-- ASSESSMENT VIEW -->
@@ -227,7 +228,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="setup-card">
     <h2>Company Setup</h2>
     <div class="strategy-note">
-      This assessment is the baseline for the company's own <span class="new">Client Performance Strategy<span class="new-badge">NEW</span></span> — current state, gap to the IBL Standard, and a <span class="new">month-by-month roadmap<span class="new-badge">NEW</span></span> to close it. <span class="tbd" onclick="showTbd('nps-standard')">An IBL Standard NPS figure is not set yet</span> — see Metrics dimension.
+      This assessment is the baseline for the company's own <span class="new">Client Performance Strategy<span class="new-badge">NEW</span></span> — current state, gap to the IBL Minimum Standard, and a <span class="new">month-by-month roadmap<span class="new-badge">NEW</span></span> to close it. <span class="tbd" onclick="showTbd('nps-standard')">An IBL Standard NPS figure is not set yet</span> — see Metrics dimension.
     </div>
 
     <div class="field-row"><label class="field-label" for="co-name">Company name</label>
@@ -376,8 +377,7 @@ const TBD = {
   'as-format': ["Application Session official format — not published yet", "Dimension 9 (Closed Loop) assumes a structured, named Application Session practice with a defined format (quarterly = operational with root-cause analysis; annual = strategic). No official template exists at group level yet."],
   'ambassador': ["Customer Ambassador concept — pending decision", "Raised early on: a named Customer Ambassador per company. Never resolved — keep as an optional idea, build it formally into a dimension, or drop it? Still open."],
   'journey-weight': ["Journey Mapping — how heavily should it be weighted?", "This is a new dimension (not in the original 10). Its relative importance in the overall score, and whether it should carry equal weight to the others, hasn't been decided yet."],
-  'level-names': ["Level names — not finalised", "This version uses Not Started / First Steps / Building / Proficient / Excellence. An earlier version used Foundational / Emerging / Structured / Accountable / IBL Standard. Which naming convention to standardise on group-wide is still open."],
-  'd10-anonymity': ["\"You said, we did\" wording — anonymity question open", "This practice assumes the company knows who gave the feedback, but many surveys are anonymous by design. Deliberately left unresolved: should this dimension require at least one non-anonymous channel, or be reworded to work for both?"]
+  'level-names': ["Level names — not finalised", "This version uses Not Started / First Steps / Building / Proficient / Excellence. An earlier version used Foundational / Emerging / Structured / Accountable / IBL Standard. Which naming convention to standardise on group-wide is still open."]
 };
 
 function showTbd(key){
@@ -584,7 +584,7 @@ function getDims(){
       { name:'Building', desc:'Training exists for customer-facing staff. Competencies in job descriptions. A recognition programme exists.',
         ev:'Training programme with tracked completion. Active recognition programme.',
         a:[{h:'l',t:'Extend training to all staff, including back-office'}]},
-      { name:'Proficient', desc:'In performance reviews and incentives across the organisation. Champion network in all departments.',
+      { name:'Proficient', desc:'In performance reviews and incentives across the organisation. Champion network in all departments. <span class="tbd" onclick="showTbd(\'ambassador\')">Some companies formalise this further with a named Customer Ambassador role</span>.',
         ev:'Incentives linked to scores. Champion network active.',
         a:[{h:'l',t:'Run an annual internal culture survey to track progress'}]},
       { name:'Excellence', desc:''+t.cx+'-first mindset at every level. CX is a recognised career path.',
