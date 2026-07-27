@@ -216,8 +216,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <div class="legend-bar">
   <div class="legend-item"><span class="legend-swatch" style="background:#fef9c3;border:1px solid #ca8a04"></span> Click = needs validation with you</div>
   <div class="legend-item"><span class="legend-swatch" style="background:#dbeafe"></span> Added or changed in today's session</div>
-  <div class="legend-item"><span class="legend-swatch" style="background:#1e3a5f"></span> IBL Minimum Standard</div>
-  <div class="legend-item"><span class="legend-swatch" style="background:#5b21b6"></span> World-Class target</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#1e3a5f"></span> IBL Minimum Standard (Level 2)</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#5b21b6"></span> World-Class target (Level 5)</div>
   <div class="legend-item"><span class="tbd" onclick="showTbd('level-names')">Level names not yet finalised group-wide</span></div>
 </div>
 
@@ -326,8 +326,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <h3>Score by dimension — IBL Minimum &amp; World-Class reference lines</h3>
     <div id="r-bars"></div>
     <div class="bar-legend">
-      <div class="bleg"><div class="bleg-line" style="background:#1e3a5f"></div> IBL Minimum Standard</div>
-      <div class="bleg"><div class="bleg-line" style="background:#5b21b6"></div> World-Class target <span class="tbd" onclick="showTbd('worldclass-priority')" style="margin-left:4px">which dimensions?</span></div>
+      <div class="bleg"><div class="bleg-line" style="background:#1e3a5f"></div> IBL Minimum Standard (Level 2)</div>
+      <div class="bleg"><div class="bleg-line" style="background:#5b21b6"></div> World-Class target (Level 5) <span class="tbd" onclick="showTbd('worldclass-priority')" style="margin-left:4px">which dimensions?</span></div>
     </div>
   </div>
 
@@ -655,7 +655,7 @@ function renderDim(i){
 
   d.levels.forEach(function(lv,li){
     const sel = scores[i]===li ? 'selected' : '';
-    const iblMin = li===2 ? '<span class="ibl-tag">IBL Minimum</span>' : '';
+    const iblMin = li===1 ? '<span class="ibl-tag">IBL Minimum</span>' : '';
     const iblWc  = li===4 ? '<span class="ibl-tag wc">World-Class</span>' : '';
     html+='<div class="lvl-opt '+sel+'" onclick="pick('+i+','+li+')">'
       +'<span class="check-mark">&check;</span>'
@@ -678,7 +678,7 @@ function renderDim(i){
   document.getElementById('btn-prev').disabled=i===0;
   const nxt=document.getElementById('btn-next');
   nxt.disabled=scores[i]===null;
-  nxt.textContent=i===N_DIMS-1?'View Results \\u2192':'Next \\u2192';
+  nxt.textContent=i===N_DIMS-1?'View Results →':'Next →';
   nxt.className=i===N_DIMS-1?'btn btn-go':'btn btn-prim';
   document.getElementById('nav-hint').textContent=scores[i]!==null?('Level '+(scores[i]+1)+' - '+LVL_NAMES[scores[i]]+' selected'):'Select a level above to continue';
 }
@@ -695,14 +695,14 @@ function nav(dir){
 function avg(){ let w=0; scores.forEach(function(s,i){ w+=(s+1)*WEIGHTS[i]; }); return Math.round(w*10)/10; }
 
 function verdict(a){
-  if(a<2)   return {v:'Critical - urgent action required', d:'Multiple dimensions are below the IBL Minimum. A recovery plan is needed.'};
-  if(a<2.5) return {v:'Below IBL Minimum Standard', d:'First steps are in place but the minimum foundation is not yet secured across all dimensions.'};
-  if(a<3.5) return {v:'Meets IBL Minimum / Building toward target', d:'The foundation is in place. Focus now on structured, consistent practices.'};
-  if(a<4.5) return {v:'Strong - approaching World-Class', d:'Sustain this level and push strategically-important dimensions toward World-Class.'};
+  if(a<2) return {v:'Below IBL Minimum - urgent action required', d:'Multiple dimensions are below the IBL Minimum Standard (Level 2). A recovery plan is needed.'};
+  if(a<3) return {v:'Meets IBL Minimum Standard', d:'The Level 2 foundation is broadly in place. Focus now on building structured, consistent practices toward Proficient.'};
+  if(a<4) return {v:'Proficient - building toward World-Class', d:'Structured practices are embedded across most dimensions. Push strategically-important dimensions toward World-Class.'};
+  if(a<5) return {v:'Strong - approaching World-Class', d:'Sustain this level and close the remaining gaps toward the World-Class benchmark.'};
   return {v:'IBL Group Benchmark', d:'This company sets the Group best-practice standard.'};
 }
-function chipClass(s){ if(s<=1) return 'chip-crit'; if(s<=2) return 'chip-low'; if(s<=3) return 'chip-min'; return 'chip-ok'; }
-function chipLabel(s,name){ const labels=['Critical','Below Minimum','Meets Minimum','Proficient','Excellence']; const icons=['\\ud83d\\udd34','\\ud83d\\udfe1','\\ud83d\\udd35','\\ud83d\\udfe2','\\u2b50']; return icons[s-1]+' '+name.replace(/<[^>]+>/g,'')+' - '+labels[s-1]; }
+function chipClass(s){ if(s<=1) return 'chip-crit'; if(s===2) return 'chip-min'; if(s===3) return 'chip-low'; return 'chip-ok'; }
+function chipLabel(s,name){ const labels=['Below Minimum','Meets Minimum','Building','Proficient','Excellence']; const icons=['🔴','🔵','🟡','🟢','⭐']; return icons[s-1]+' '+name.replace(/<[^>]+>/g,'')+' - '+labels[s-1]; }
 
 function assignMonths(actions){
   const shortMonths=[1,2,3], medMonths=[4,6,8,9], longMonths=[10,13,16];
@@ -729,7 +729,7 @@ function showResults(){
   const roundLabel = round==='first' ? 'First Review' : 'Second Review';
 
   document.getElementById('r-title').innerHTML='Client Performance Strategy - '+co;
-  document.getElementById('r-meta').textContent=roundLabel+' \\u00b7 Assessed '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+' \\u00b7 Weighted score: '+a.toFixed(1)+' / 5 \\u00b7 Cluster: '+cl+' \\u00b7 Sector: '+(sector==='b2c'?'B2C':sector==='b2b'?'B2B':'Mixed');
+  document.getElementById('r-meta').textContent=roundLabel+' · Assessed '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+' · Weighted score: '+a.toFixed(1)+' / 5 · Cluster: '+cl+' · Sector: '+(sector==='b2c'?'B2C':sector==='b2b'?'B2B':'Mixed');
   document.getElementById('r-score').textContent=a.toFixed(1);
   document.getElementById('r-verdict').textContent=vd.v;
   document.getElementById('r-verdesc').textContent=vd.d;
@@ -759,12 +759,12 @@ function showResults(){
     let body='<div class="rm-body" id="rmb'+i+'">'
       +'<div class="cur-state"><strong>Current state (Level '+sc+' - '+LVL_NAMES[s]+'):</strong> '+lv.desc.replace(/<[^>]+>/g,'')+'</div>';
     if(sc>=5){
-      body+='<div class="on-target">\\u2713 At World-Class. Sustain this level and share practice across the Group.</div>';
+      body+='<div class="on-target">✓ At World-Class. Sustain this level and share practice across the Group.</div>';
     } else {
       let allActions=[];
       for(let l=s;l<5;l++){ if(d.levels[l].a) allActions=allActions.concat(d.levels[l].a); }
       const withMonths = assignMonths(allActions);
-      body+='<div class="gap-hdr">\\ud83d\\udcc5 Month-by-month roadmap to the next level and beyond</div>';
+      body+='<div class="gap-hdr">📅 Month-by-month roadmap to the next level and beyond</div>';
       withMonths.forEach(function(a){ body+='<div class="action-row"><span class="month-tag">Month '+a.month+'</span><span class="action-txt">'+a.t.replace(/<[^>]+>/g,'')+'</span></div>'; });
     }
     body+='</div>';
@@ -773,7 +773,7 @@ function showResults(){
       +'<span class="rm-icon">'+d.icon+'</span>'
       +'<span class="rm-title">'+d.title.replace(/<[^>]+>/g,'').replace(/&amp;/g,'&')+'</span>'
       +'<span class="rm-badge" style="color:'+col+';background:'+bg+'">Level '+sc+' - '+LVL_NAMES[s]+'</span>'
-      +'<span class="rm-arrow" id="rma'+i+'">\\u203a</span>'
+      +'<span class="rm-arrow" id="rma'+i+'">›</span>'
       +'</div>'+body+'</div>';
   });
   document.getElementById('r-roadmap').innerHTML=rm;
