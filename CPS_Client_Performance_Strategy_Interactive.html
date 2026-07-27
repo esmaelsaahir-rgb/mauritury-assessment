@@ -591,9 +591,10 @@ function getDims(){
       { name:'Not Started', desc:'Results are not followed by action. No record of improvements.',
         ev:'No action log.',
         a:[{h:'s',t:'Schedule an internal review meeting within 4 weeks of any survey or complaint spike'}]},
-      { name:'First Steps', desc:'Some actions triggered by results. No consistent owners or deadlines. Symptoms fixed, causes not examined.',
-        ev:'Occasional action list, no tracking.',
-        a:[{h:'m',t:'Assign one named owner per action item with a deadline'}]},
+      { name:'First Steps', desc:'An action list is written down after each review, even if simply (e.g. a shared document or spreadsheet). Items are not consistently assigned an owner or deadline, and the list is not tracked to completion or revisited on a set cadence. Symptoms fixed, causes not examined.',
+        ev:'A dated action list exists on file for the most recent review(s). No owner/deadline field populated consistently, and no evidence of the list being checked or updated between reviews.',
+        a:[{h:'m',t:'Add an owner and a deadline to every item on the action list, starting with the next review'},
+           {h:'m',t:'Put the action list on a bi-weekly check-in cadence so it gets revisited, not just written'}]},
       { name:'Building', desc:'A working session (Application Session, whatever the company calls it) held after each survey output. Actions logged with owner and deadline. <span class="new">Root causes are examined using 5 Whys or a fishbone diagram, not just the symptom.</span>',
         ev:'AS held after each survey. Action log with owner/deadline. Root-cause note on file for major issues.',
         a:[{h:'m',t:'Build a formal action tracker: owner, deadline, status, updated monthly'},
@@ -603,7 +604,7 @@ function getDims(){
         a:[{h:'l',t:'Introduce a Plan-Do-Check-Act cycle as the standing rhythm behind every Application Session'},
            {h:'l',t:'Set a target to push completion rate from the 60-70% range to 80%+ and hold it there for four consecutive review cycles'}]},
       { name:'Excellence', desc:'AS held after every output, differentiated by layer (quarterly = operational with root-cause analysis; annual = strategic). Every action owned, dated, visible. 80%+ completion sustained across at least 4 consecutive review cycles, not a one-off high. No issue survives two cycles.',
-        ev:'80%+ completion sustained across at least 4 consecutive review cycles, documented. Zero repeat issues beyond one cycle, documented.', a:[]}
+        ev:'80%+ completion sustained across at least 4 consecutive review cycles, documented. Zero repeat issues beyond one cycle, documented. <span class="new">Few large clients: completion is tracked and provable at the per-named-account level. Many clients: completion is tracked and provable at the aggregate/segment level, with representative sampling to confirm consistency.</span>', a:[]}
     ]},
 
   { icon:'&#128680;', title:'Alerts &amp; Escalation', sub:'Thresholds, automated alerts, and an escalation path that reaches someone who can act',
