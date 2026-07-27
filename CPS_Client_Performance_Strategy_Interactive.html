@@ -546,11 +546,11 @@ function getDims(){
       { name:'Building', desc:'A CRM or equivalent actively used by customer-facing staff. Basic reporting available.',
         ev:'CRM in active use (>70% of interactions logged).',
         a:[{h:'l',t:'Integrate CRM with billing, VoC and service data for a fuller picture'}]},
-      { name:'Proficient', desc:'Integrated platform, single '+t.cx.toLowerCase()+' view. Meets most of the IBL requirements catalogue, once it exists.',
+      { name:'Proficient', desc:'Integrated platform, single '+t.cx.toLowerCase()+' view: CRM, billing, service and VoC data are connected (not manually reassembled), data ownership is assigned to named roles, and reporting runs on a reliable, defined cadence. <span class="tbd" data-tbd="platform-catalogue" onclick="showTbd(this.dataset.tbd)">Cross-checked against the IBL requirements catalogue once it is published</span>.',
         ev:'Integrated platform. Self-service reporting. Data governance policy in place. <span class="new">Few large clients: platform holds a detailed profile per named account. Many clients: platform supports segmentation and bulk reporting.</span>',
-        a:[{h:'l',t:'Assess current tools against the IBL requirements catalogue once published'}]},
+        a:[{h:'l',t:'Document your own platform requirements checklist now (collection, dashboards, alerting, action tracking, export) and assess current tools against it; reconcile with the IBL requirements catalogue once published'}]},
       { name:'Excellence', desc:'AI/ML-driven personalisation and prediction. Real-time data powering decisions.',
-        ev:'Predictive model deployed. Omnichannel platform.', a:[]}
+        ev:'Predictive model deployed. <span class="new">Few large clients: a real-time, account-level dashboard integrates all data sources and directly informs relationship and service decisions for each named client. Many clients: an omnichannel platform delivers predictive, real-time personalisation at scale.</span>', a:[]}
     ]},
 
   { icon:'&#129309;', title:t.complaints.slice(0,1).toUpperCase()+t.complaints.slice(1)+' Management &amp; Recovery', sub:'How '+t.complaints.toLowerCase()+' are captured, resolved and used to drive improvement',
