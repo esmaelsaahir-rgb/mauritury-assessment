@@ -356,9 +356,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
 <script>
 const T = {
-  b2c: { cx:'Customer', cxp:'Customers', complaint:'Complaint', complaints:'Complaints', voc:'Voice of Customer', journey:'Customer Journey', account:'Customer relationship' },
-  b2b: { cx:'Client',   cxp:'Clients',   complaint:'Issue / escalation', complaints:'Issues & escalations', voc:'Client Feedback', journey:'Service Delivery Journey', account:'Account management' },
-  mix: { cx:'Customer / Client', cxp:'Customers & clients', complaint:'Complaint / issue', complaints:'Complaints & issues', voc:'Voice of Customer', journey:'Customer / Service Journey', account:'Customer / account relationship' }
+  b2c: { cx:'Customer', cxp:'Customers', complaint:'Complaint', complaints:'Complaints', voc:'Voice of Customer', journey:'Customer Journey' },
+  b2b: { cx:'Client',   cxp:'Clients',   complaint:'Issue / escalation', complaints:'Issues & escalations', voc:'Client Feedback', journey:'Service Delivery Journey' },
+  mix: { cx:'Customer / Client', cxp:'Customers & clients', complaint:'Complaint / issue', complaints:'Complaints & issues', voc:'Voice of Customer', journey:'Customer / Service Journey' }
 };
 
 const TBD = {
@@ -459,7 +459,7 @@ function getDims(){
         a:[{h:'m',t:'Document your own NPS/CSAT/CES definitions and calculation rules clearly; reconcile with the IBL metrics definitions once published'},
            {h:'l',t:'Quantify the financial impact of satisfaction: what does a movement in score mean in revenue?'}]},
       { name:'Excellence', desc:'Predictive metrics and financial linkage fully integrated. Real-time dashboards with alerts.',
-        ev:'<span class="new">Few large clients: documented score-revenue correlation and early-warning indicators tracked per named account, reviewed regularly with the account team. Many clients: a predictive model trained and validated across the full customer base, with score-revenue correlation quantified.</span>', a:[]}
+        ev:'<span class="new">Few large clients: documented score-revenue correlation and early-warning indicators tracked per named account, reviewed regularly with the account team. Many clients: a predictive model trained and validated across the full '+t.cxp.toLowerCase()+' base, with score-revenue correlation quantified.</span>', a:[]}
     ]},
 
   { icon:'&#128483;', title:t.voc+' &amp; Listening Coverage', sub:'How feedback is collected, shared and acted upon - <span class="new">quarterly means an internal review of continuous signals, not a separate pulse survey; the one customer-facing survey is annual</span>',
@@ -564,7 +564,7 @@ function getDims(){
         ev:'Root-cause categories in log. Quarterly Pareto/fishbone review on record. FCR tracked. <span class="new">Few large clients: every complaint traceable to a named account with a relationship history. Many clients: complaint volume analysed by category and segment.</span>',
         a:[{h:'l',t:'Run quarterly trend analysis: what patterns repeat, what must change?'}]},
       { name:'Excellence', desc:'Complaints drive systemic innovation. At-risk '+t.cxp.toLowerCase()+' are identified before they complain.',
-        ev:'Systemic issue prevention in place. FCR industry-leading. <span class="new">Few large clients: issue prevention is driven by deep relationship insight, with account teams proactively flagging and resolving risks at the named-account level before they become complaints. Many clients: a trained predictive model is applied at scale across the client base to flag at-risk '+t.cxp.toLowerCase()+' and trigger pre-emptive outreach.</span>', a:[]}
+        ev:'Systemic issue prevention in place. FCR industry-leading. <span class="new">Few large clients: issue prevention is driven by deep relationship insight, with account teams proactively flagging and resolving risks at the named-account level before they become complaints. Many clients: a trained predictive model is applied at scale across the full '+t.cxp.toLowerCase()+' base to flag at-risk '+t.cxp.toLowerCase()+' and trigger pre-emptive outreach.</span>', a:[]}
     ]},
 
   { icon:'&#127793;', title:'Culture &amp; People', sub:'Do staff understand their role in performance? Are they trained and recognised?',
@@ -612,9 +612,9 @@ function getDims(){
       { name:'Not Started', desc:'No thresholds. Poor results trigger nothing.',
         ev:'No alerting of any kind.',
         a:[{h:'s',t:'Pick your one worst-performing metric and set a simple threshold for it'}]},
-      { name:'First Steps', desc:'At least one trigger point is known and actually followed when it comes up (e.g. \'if a client complains twice, tell the manager\') - but it lives in people\'s heads, not on paper, with no named owner or response-time commitment.',
-        ev:'At least one informally-known trigger point that staff can describe consistently and that gets acted on in practice, not written down anywhere.',
-        a:[{h:'m',t:'Write down your known trigger point, name who gets notified, and set a response-time target - that turns it into Building\'s documented escalation path'}]},
+      { name:'First Steps', desc:'At least one trigger point is known, noted somewhere in writing (e.g. a line in a shared document, an email, a team note), and actually followed when it comes up (e.g. \'if a client complains twice, tell the manager\') - but it has no named owner or response-time commitment attached.',
+        ev:'A dated or checkable written record (note, email, shared doc entry) naming at least one trigger point, that staff can point to and that gets acted on in practice.',
+        a:[{h:'m',t:'Add a named owner and a response-time target to the trigger point you\'ve already noted - that turns it into Building\'s documented escalation path'}]},
       { name:'Building', desc:'Thresholds defined for at least one core metric. Alerts manual. A documented escalation path exists for that metric: a named trigger, a named person or role who is notified, and a stated response-time expectation.',
         ev:'At least one documented threshold, with a written escalation path on file naming the trigger, the owner notified, and the response-time target.',
         a:[{h:'m',t:'Define thresholds for your remaining key metrics and extend the documented escalation path (trigger, owner, response time) to cover each one'}]},

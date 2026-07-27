@@ -24,8 +24,10 @@ Check whether any two dimensions have drifted to cover the same ground after ind
 **3. Coherence of the Minimum/World-Class story**
 Read Level 2 (First Steps, the IBL Minimum) across all 11 dimensions back to back. Does "IBL Minimum" feel like the same weight of achievement everywhere, or does it feel like a low bar in some dimensions and a high bar in others? Same check for Level 5 (Excellence) / world-class.
 
+**Established exception — do not flag this:** Governance & Organisation and Culture & People deliberately have NO client-base size flex at any level, including Proficient/Excellence. This is correct by design (governance/culture genuinely don't vary by client-base size), confirmed repeatedly by baseline-scorer and fairness-checker. Do not recommend adding a flex to these two dimensions. Only flag a missing flex where a dimension's OTHER levels already carry one and a specific level (e.g. Excellence) inconsistently drops it — that is a real gap; a dimension with zero flex anywhere is not.
+
 **4. Structural integrity**
-- Confirm exactly 11 dimensions exist, each with exactly 6 levels (0-5)
+- Confirm exactly 11 dimensions exist, each with exactly 5 named levels (Not Started, First Steps, Building, Proficient, Excellence), displayed on-screen as Level 1-5. This is a 5-level model, not a 6-level "0-5" model — that is the correct, consistently-applied design, not an error to flag.
 - Confirm no orphaned or duplicated dimension titles
 - Flag anything that looks like a leftover artifact from editing (e.g. a level description that references "the previous version" or contains placeholder text)
 
