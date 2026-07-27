@@ -13,8 +13,9 @@ Rewrite exactly ONE named dimension's content inside the interactive HTML scorec
 
 ## Design decisions you must follow — non-negotiable
 
-* IBL Minimum = Score 3, fixed. Score 3 must read as a credible, defined-and-repeatable floor — not "just started" (too weak for a floor) and not "excellent" (too strong).
-* Score 5 = world-class, an aspirational anchor most companies won't hit on round one. Never water this down to make it feel "achievable."
+* IBL Minimum = Level 2 (First Steps), fixed. Level 2 must read as a credible, defined-and-repeatable floor — not "nothing has happened yet" (too weak for a floor) and not "excellent" (too strong). Building (Level 3) sits above the minimum, not at it.
+* Level names are fixed as-is (Not Started / First Steps / Building / Proficient / Excellence) — never rename or reorder them, only rewrite the content inside each.
+* Level 5 (Excellence) = world-class, an aspirational anchor most companies won't hit on round one. Never water this down to make it feel "achievable."
 * Sector adaptation stays as built — do not remove or replace the B2C/B2B/Mixed terminology system (the `T{}` object and `t.cx`, `t.cxp`, `t.complaints` etc. variables). If you improve sector wording, extend the existing system; don't bypass it with hardcoded terms.
 * Client-base evidence flex: for dimensions where client-base size genuinely changes what evidence looks like, add a short note distinguishing:
    * Few-large-clients companies prove maturity through depth (named account plans, exec relationships, per-account tracking)

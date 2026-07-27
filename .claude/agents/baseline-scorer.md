@@ -15,8 +15,8 @@ Read the interactive HTML scorecard file and score every dimension against the d
 
 1. Description — is the dimension's scope clearly and concisely defined?
 2. 0–5 anchors — are all six levels (0–5) distinct, observable, and non-overlapping? Flag any two adjacent levels that could plausibly describe the same real-world situation.
-3. IBL Minimum = Score 3 — is Score 3 written as a credible, defined-and-repeatable floor (not too weak, not too strong)?
-4. Score 5 = world-class — is the top level written as a genuine aspirational anchor, not just "a bit better than 4"?
+3. IBL Minimum = Level 2 (First Steps) — is Level 2 written as a credible, defined-and-repeatable floor (not too weak, not too strong)? Level names are fixed (Not Started / First Steps / Building / Proficient / Excellence) — do not suggest renaming them.
+4. Level 5 (Excellence) = world-class — is the top level written as a genuine aspirational anchor, not just "a bit better than Proficient"?
 5. Evidence flexes by client-base size — does the evidence for at least the higher levels distinguish between a few-large-clients company (evidence = depth: named account plans, exec relationships) and a many-clients company (evidence = systematic reach: sampling, segmentation, representative coverage)? Note: some dimensions legitimately have NO size dependency (e.g. governance, culture) — that absence is correct, not a gap, and should be marked "N/A — correctly size-independent" rather than flagged as missing.
 6. Next-level actions — does each level (except level 5) have concrete, doable actions that would move the company to the next level?
 

@@ -22,7 +22,7 @@ Scan all 11 dimensions for inconsistent naming of the same concept — e.g. "App
 Check whether any two dimensions have drifted to cover the same ground after individual edits (e.g. if Journey Mapping's evidence and Closed Loop's evidence both ended up describing the same root-cause-analysis practice in near-identical terms, that's now duplicated, not complementary).
 
 **3. Coherence of the Minimum/World-Class story**
-Read Score 3 across all 11 dimensions back to back. Does "IBL Minimum" feel like the same weight of achievement everywhere, or does it feel like a low bar in some dimensions and a high bar in others? Same check for Score 5 / world-class.
+Read Level 2 (First Steps, the IBL Minimum) across all 11 dimensions back to back. Does "IBL Minimum" feel like the same weight of achievement everywhere, or does it feel like a low bar in some dimensions and a high bar in others? Same check for Level 5 (Excellence) / world-class.
 
 **4. Structural integrity**
 - Confirm exactly 11 dimensions exist, each with exactly 6 levels (0-5)
@@ -34,9 +34,9 @@ Re-read the Goal Command (below) and confirm the finished file, taken as a whole
 
 ```
 Goal: bring all 11 dimensions to a defined "done" state — clear description, distinct
-observable 0-5 anchors, IBL Minimum fixed at Score 3, Score 5 written as world-class,
-evidence that flexes fairly by client-base size and B2B/B2C mix, explicit next-level
-actions that make the assessment output double as the roadmap.
+observable level anchors, IBL Minimum fixed at Level 2 (First Steps), Level 5 (Excellence)
+written as world-class, evidence that flexes fairly by client-base size and B2B/B2C mix,
+explicit next-level actions that make the assessment output double as the roadmap.
 ```
 
 ## Output format
@@ -51,7 +51,7 @@ FINAL REVIEW — [date/session]
    [list any duplication between named dimensions]
 
 3. Minimum/World-Class coherence: PASS / ISSUES FOUND
-   [note any dimension where Score 3 or Score 5 feels out of step with the others]
+   [note any dimension where Level 2 or Level 5 feels out of step with the others]
 
 4. Structural integrity: PASS / ISSUES FOUND
    [dimension count, level count, artifacts]
