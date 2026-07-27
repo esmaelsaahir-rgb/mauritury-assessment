@@ -575,7 +575,7 @@ function getDims(){
 
   { icon:'&#127793;', title:'Culture &amp; People', sub:'Do staff understand their role in performance? Are they trained and recognised?',
     levels:[
-      { name:'Not Started', desc:'Staff measure success by tasks, not customer outcomes. The satisfaction score, if one exists, is not shared with staff at all.',
+      { name:'Not Started', desc:'Staff measure success by tasks, not '+t.cx.toLowerCase()+' outcomes. The satisfaction score, if one exists, is not shared with staff at all.',
         ev:'No CX training. Staff cannot state the current satisfaction score if asked.',
         a:[{h:'s',t:'Share the monthly satisfaction score with all staff'}]},
       { name:'First Steps', desc:'Staff know the current satisfaction score and that it matters, because it is shared informally. No formal training exists yet, and it is not in job descriptions or performance reviews.',
@@ -587,7 +587,7 @@ function getDims(){
       { name:'Proficient', desc:'In performance reviews and incentives across the organisation. Champion network in all departments.',
         ev:'Incentives linked to scores. Champion network active.',
         a:[{h:'l',t:'Run an annual internal culture survey to track progress'}]},
-      { name:'Excellence', desc:'Client-first mindset at every level. CX is a recognised career path.',
+      { name:'Excellence', desc:''+t.cx+'-first mindset at every level. CX is a recognised career path.',
         ev:'In leadership hiring criteria.', a:[]}
     ]},
 
@@ -629,21 +629,21 @@ function getDims(){
         ev:'Zero unassigned breaches beyond 5 business days, tracked.', a:[]}
     ]},
 
-  { icon:'&#128203;', title:'Business Linkage &amp; Data Ownership', sub:'Does the company connect customer scores to business outcomes, and act on the data it has?',
+  { icon:'&#128203;', title:'Business Linkage &amp; Data Ownership', sub:'Does the company connect '+t.cx.toLowerCase()+' scores to business outcomes, and act on the data it has?',
     levels:[
-      { name:'Not Started', desc:'Customer scores and business results (revenue, churn) have never once been looked at side by side, even after losing a client.',
+      { name:'Not Started', desc:t.cx+' scores and business results (revenue, churn) have never once been looked at side by side, even after losing a '+t.cx.toLowerCase()+'.',
         ev:'No correlation ever examined, not even informally.',
-        a:[{h:'s',t:'Pick one lost client and check what their last survey/complaint said - do it once, on purpose'}]},
-      { name:'First Steps', desc:'Looked at together exactly once, reactively, after a visible event such as losing a client. Not a repeated or scheduled practice.',
+        a:[{h:'s',t:'Pick one lost '+t.cx.toLowerCase()+' and check what their last survey/'+t.complaint.toLowerCase()+' said - do it once, on purpose'}]},
+      { name:'First Steps', desc:'Looked at together exactly once, reactively, after a visible event such as losing a '+t.cx.toLowerCase()+'. Not a repeated or scheduled practice.',
         ev:'One dated instance on record, triggered by an event, never repeated since.',
         a:[{h:'m',t:'Repeat the score-to-outcome check at the next scheduled review, and note the date, so it stops being a one-off'}]},
-      { name:'Building', desc:'Customer metrics and business KPIs are reviewed together at a defined, recurring review - and the company can point to at least one specific, documented instance where a client score/KPI movement was explicitly discussed alongside a business outcome (revenue, retention, cost). <span class="new">The linkage analysis itself doesn\'t need to be rigorous yet, but it must be a real discussion of cause-and-effect, not just two topics sharing an agenda.</span>',
-        ev:'Minutes or notes from at least one recurring review show a named client (or segment) score change discussed next to a specific business outcome it may have driven - not merely both appearing in the same meeting.',
+      { name:'Building', desc:t.cx+' metrics and business KPIs are reviewed together at a defined, recurring review - and the company can point to at least one specific, documented instance where a '+t.cx.toLowerCase()+' score/KPI movement was explicitly discussed alongside a business outcome (revenue, retention, cost). <span class="new">The linkage analysis itself doesn\'t need to be rigorous yet, but it must be a real discussion of cause-and-effect, not just two topics sharing an agenda.</span>',
+        ev:'Minutes or notes from at least one recurring review show a named '+t.cx.toLowerCase()+' (or segment) score change discussed next to a specific business outcome it may have driven - not merely both appearing in the same meeting.',
         a:[{h:'m',t:'Make the score-to-outcome discussion a standing agenda item, not a one-off, so it happens every review'}]},
       { name:'Proficient', desc:'A defined, repeatable method links scores to retention/revenue/churn. Used in real decisions (e.g. which accounts get proactive outreach).',
-        ev:'A named method, run every quarter, feeding an actual decision. <span class="new">Few large clients: model flags specific named accounts as at-risk. Many clients: model flags at-risk segments with a stated confidence level.</span>',
+        ev:'A named method, run every quarter, feeding an actual decision. <span class="new">Few large '+t.cxp.toLowerCase()+': model flags specific named accounts as at-risk. Many '+t.cxp.toLowerCase()+': model flags at-risk segments with a stated confidence level.</span>',
         a:[{h:'l',t:'Build a simple model: flag detractor accounts as churn-risk, route to account management'}]},
-      { name:'Excellence', desc:'Customer performance sits permanently alongside financial KPIs in the core management report used to run the business. Planning targets factor in the measured link.',
+      { name:'Excellence', desc:t.cx+' performance sits permanently alongside financial KPIs in the core management report used to run the business. Planning targets factor in the measured link.',
         ev:'One integrated management report. Targets set using the measured relationship.', a:[]}
     ]}
   ];
