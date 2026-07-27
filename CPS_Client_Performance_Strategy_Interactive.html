@@ -603,11 +603,12 @@ function getDims(){
         ev:'AS held after each survey. Action log with owner/deadline. Root-cause note on file for major issues.',
         a:[{h:'m',t:'Build a formal action tracker: owner, deadline, status, updated monthly'},
            {h:'m',t:'Apply 5 Whys to your top recurring issue and document the real cause'}]},
-      { name:'Proficient', desc:'AS held systematically, on schedule. Action log followed bi-weekly. Completion rate tracked and trending upward. Repeat issues identified.',
-        ev:'Bi-weekly follow-up on record. Completion rate trending toward 80%. <span class="new">Few large clients: action log references named accounts. Many clients: action log groups issues by segment/category.</span>',
-        a:[{h:'l',t:'Introduce a Plan-Do-Check-Act cycle as the standing rhythm behind every Application Session'}]},
-      { name:'Excellence', desc:'AS held after every output, differentiated by layer (quarterly = operational with root-cause analysis; annual = strategic). Every action owned, dated, visible. At least 80% completion achieved each cycle. No issue survives two cycles.',
-        ev:'80%+ completion at each review. Zero repeat issues beyond one cycle, documented.', a:[]}
+      { name:'Proficient', desc:'AS held systematically, on schedule. Action log followed bi-weekly. Completion rate consistently in the 60-70% range across the last two review cycles. Repeat issues identified.',
+        ev:'Bi-weekly follow-up on record. Completion rate consistently 60-70% over the last 2 review cycles. <span class="new">Few large clients: action log references named accounts. Many clients: action log groups issues by segment/category.</span>',
+        a:[{h:'l',t:'Introduce a Plan-Do-Check-Act cycle as the standing rhythm behind every Application Session'},
+           {h:'l',t:'Set a target to push completion rate from the 60-70% range to 80%+ and hold it there for four consecutive review cycles'}]},
+      { name:'Excellence', desc:'AS held after every output, differentiated by layer (quarterly = operational with root-cause analysis; annual = strategic). Every action owned, dated, visible. 80%+ completion sustained across at least 4 consecutive review cycles, not a one-off high. No issue survives two cycles.',
+        ev:'80%+ completion sustained across at least 4 consecutive review cycles, documented. Zero repeat issues beyond one cycle, documented.', a:[]}
     ]},
 
   { icon:'&#128680;', title:'Alerts &amp; Escalation', sub:'Thresholds, automated alerts, and an escalation path that reaches someone who can act',
